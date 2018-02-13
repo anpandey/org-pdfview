@@ -66,7 +66,7 @@
   "Store a link to a pdfview buffer."
   (when (eq major-mode 'pdf-view-mode)
     ;; This buffer is in pdf-view-mode
-    (let* ((path buffer-file-name)
+    (let* ((path (abbreviate-file-name buffer-file-name))
            (page (pdf-view-current-page))
            (link (concat "pdfview:" path "::" (number-to-string page))))
       (org-store-link-props
